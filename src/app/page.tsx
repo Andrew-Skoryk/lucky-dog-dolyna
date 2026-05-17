@@ -10,6 +10,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { BackToTopButton } from "@/components/back-to-top-button";
+import { ContactSocialLinks } from "@/components/contact-social-links";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 
@@ -313,7 +314,7 @@ export default function Home() {
                 </h2>
               </div>
               <div className="grid gap-4 lg:grid-cols-3">
-                {workSteps.map((item, index) => {
+                {workSteps.map((item) => {
                   const Icon = item.icon;
 
                   return (
@@ -321,9 +322,6 @@ export default function Home() {
                       key={item.title}
                       className="border-brand-900/10 relative rounded-[28px] border bg-white p-5 shadow-sm"
                     >
-                      {index < workSteps.length - 1 ? (
-                        <div className="bg-brand-900/15 absolute top-10 right-[-0.9rem] hidden h-px w-8 lg:block" />
-                      ) : null}
                       <div className="bg-brand-900/6 text-brand-900 mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl">
                         <Icon className="h-5 w-5" />
                       </div>
@@ -370,6 +368,10 @@ export default function Home() {
                     <p className="font-semibold text-white">{storeHours}</p>
                   </article>
                 </div>
+              </div>
+
+              <div className="px-6 pb-6 sm:px-8 lg:px-10">
+                <ContactSocialLinks />
               </div>
 
               <div className="px-6 pb-6 sm:px-8 lg:px-10 lg:pb-10">

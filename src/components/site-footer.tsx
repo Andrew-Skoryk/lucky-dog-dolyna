@@ -1,11 +1,18 @@
 import Image from "next/image";
 import { Clock3, MapPin, Phone } from "lucide-react";
+import { FaFacebookF, FaInstagram, FaTelegramPlane } from "react-icons/fa";
 
 const footerNavItems = [
   { href: "#services", label: "Послуги" },
   { href: "#products", label: "Товари" },
   { href: "#how-we-work", label: "Як працюємо" },
   { href: "#contacts", label: "Контакти" },
+];
+
+const footerSocialLinks = [
+  { href: "https://instagram.com/", label: "Instagram", icon: FaInstagram },
+  { href: "https://facebook.com/", label: "Facebook", icon: FaFacebookF },
+  { href: "https://t.me/", label: "Telegram", icon: FaTelegramPlane },
 ];
 
 const storeAddress = "проспект Незалежності, 8, Долина, Івано-Франківська область, 77500";
@@ -17,7 +24,7 @@ export function SiteFooter() {
   return (
     <footer className="bg-brand-950 text-white">
       <div className="mx-auto max-w-7xl px-5 py-8 sm:px-8 lg:px-12 lg:py-10">
-        <div className="grid gap-8 border-t border-white/10 pt-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.7fr)_minmax(0,0.9fr)]">
+        <div className="grid gap-8 border-t border-white/10 pt-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.8fr)_minmax(0,0.95fr)]">
           <div className="max-w-lg">
             <a
               href="#top"
@@ -93,6 +100,30 @@ export function SiteFooter() {
                   <p className="text-xs text-white/42 uppercase">Графік</p>
                   <p className="text-sm font-medium text-white/84">{storeHours}</p>
                 </div>
+              </div>
+            </div>
+
+            <div className="mt-5">
+              <p className="text-[11px] font-semibold tracking-[0.18em] text-white/38 uppercase">
+                Соцмережі
+              </p>
+              <div className="mt-2 flex items-center gap-2.5">
+                {footerSocialLinks.map((item) => {
+                  const Icon = item.icon;
+
+                  return (
+                    <a
+                      key={item.label}
+                      href={item.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={item.label}
+                      className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/6 text-white/64 transition duration-300 hover:-translate-y-0.5 hover:border-white/18 hover:bg-white/10 hover:text-white"
+                    >
+                      <Icon className="h-[15px] w-[15px]" />
+                    </a>
+                  );
+                })}
               </div>
             </div>
           </div>
