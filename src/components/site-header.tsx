@@ -133,11 +133,11 @@ export function SiteHeader() {
     ? "border-brand-900/10 bg-brand-950/3"
     : "border-white/14 bg-white/8";
   const ghostButtonClasses = isScrolled
-    ? "border-brand-900/18 bg-white/70 text-brand-900 hover:bg-brand-900/6"
-    : "border-white/20 bg-white/8 text-white hover:bg-white/14";
+    ? "border-brand-900/18 bg-white/70 text-brand-900 shadow-[0_14px_34px_-24px_rgba(16,24,40,0.34)] hover:-translate-y-0.5 hover:bg-brand-900/6 hover:shadow-[0_18px_40px_-24px_rgba(16,24,40,0.38)]"
+    : "border-white/20 bg-white/8 text-white shadow-[0_16px_36px_-26px_rgba(0,0,0,0.4)] hover:-translate-y-0.5 hover:bg-white/14 hover:shadow-[0_20px_42px_-24px_rgba(0,0,0,0.46)]";
   const primaryButtonClasses = isScrolled
-    ? "bg-brand-900 text-white hover:bg-brand-700"
-    : "bg-white text-brand-950 hover:bg-white/88";
+    ? "bg-brand-900 text-white shadow-[0_16px_36px_-22px_rgba(39,51,91,0.54)] hover:-translate-y-0.5 hover:bg-brand-700 hover:shadow-[0_20px_42px_-22px_rgba(39,51,91,0.62)]"
+    : "bg-white text-brand-950 shadow-[0_16px_40px_-24px_rgba(0,0,0,0.38)] hover:-translate-y-0.5 hover:bg-white/88 hover:shadow-[0_20px_46px_-24px_rgba(0,0,0,0.46)]";
   const activeItemClasses = isScrolled ? "text-brand-950" : "text-white";
   const idleItemClasses = isScrolled
     ? "text-zinc-600 hover:text-brand-900"
@@ -177,26 +177,28 @@ export function SiteHeader() {
           <a
             href="#top"
             onClick={(event) => handleNavClick(event, "top")}
-            className="group flex min-w-0 items-center gap-3"
+            className="group flex min-w-0 items-center gap-3 transition-transform duration-300 hover:-translate-y-0.5"
           >
             <Image
               src="/Luck_Dog_Logo.jpg"
               alt="Lucky Dog logo"
               width={isScrolled ? 46 : 54}
               height={isScrolled ? 46 : 54}
-              className="rounded-2xl object-cover shadow-lg shadow-black/15 transition-all duration-300"
+              className="rounded-2xl object-cover shadow-lg shadow-black/15 transition-all duration-300 group-hover:scale-[1.03] group-hover:shadow-[0_16px_34px_-18px_rgba(16,24,40,0.52)]"
               priority
             />
             <div className="min-w-0">
               <p
                 className={`text-[11px] font-semibold tracking-[0.24em] uppercase transition ${
-                  isScrolled ? "text-brand-700" : "text-white/70"
+                  isScrolled
+                    ? "text-brand-700 group-hover:text-brand-600"
+                    : "text-white/70 group-hover:text-white/88"
                 }`}
               >
                 Зоокомплекс
               </p>
               <p
-                className={`font-heading truncate text-lg leading-tight font-bold transition sm:text-xl ${
+                className={`font-heading truncate text-lg leading-tight font-bold transition duration-300 sm:text-xl ${
                   isScrolled ? "text-brand-950 group-hover:text-brand-700" : "text-white"
                 }`}
               >
@@ -241,14 +243,14 @@ export function SiteHeader() {
             <a
               href="#contacts"
               onClick={(event) => handleNavClick(event, "contacts")}
-              className={`focus-visible:ring-brand-700 inline-flex h-11 items-center justify-center gap-2 rounded-full border px-4 text-sm leading-none font-semibold transition focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none ${ghostButtonClasses}`}
+              className={`focus-visible:ring-brand-700 inline-flex h-11 items-center justify-center gap-2 rounded-full border px-4 text-sm leading-none font-semibold transition duration-300 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none ${ghostButtonClasses}`}
             >
               <MapPinned className="h-4 w-4 shrink-0" />
               Маршрут
             </a>
             <a
               href="tel:+380000000000"
-              className={`focus-visible:ring-brand-700 inline-flex h-11 items-center justify-center gap-2 rounded-full px-4 text-sm leading-none font-semibold transition focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none ${primaryButtonClasses}`}
+              className={`focus-visible:ring-brand-700 inline-flex h-11 items-center justify-center gap-2 rounded-full px-4 text-sm leading-none font-semibold transition duration-300 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none ${primaryButtonClasses}`}
             >
               <Phone className="h-4 w-4 shrink-0" />
               Консультація
@@ -321,14 +323,14 @@ export function SiteHeader() {
                 <a
                   href="#contacts"
                   onClick={(event) => handleNavClick(event, "contacts")}
-                  className="inline-flex h-11 items-center justify-center rounded-full border border-white/20 bg-white/8 px-4 text-center text-sm leading-none font-semibold text-white transition hover:bg-white/14 focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
+                  className="inline-flex h-11 items-center justify-center rounded-full border border-white/20 bg-white/8 px-4 text-center text-sm leading-none font-semibold text-white shadow-[0_16px_36px_-26px_rgba(0,0,0,0.4)] transition duration-300 hover:-translate-y-0.5 hover:bg-white/14 hover:shadow-[0_20px_42px_-24px_rgba(0,0,0,0.46)] focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
                 >
                   Маршрут
                 </a>
                 <a
                   href="tel:+380000000000"
                   onClick={() => setIsMenuOpen(false)}
-                  className="text-brand-950 inline-flex h-11 items-center justify-center rounded-full bg-white px-4 text-center text-sm leading-none font-semibold transition hover:bg-white/90 focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
+                  className="text-brand-950 inline-flex h-11 items-center justify-center rounded-full bg-white px-4 text-center text-sm leading-none font-semibold shadow-[0_16px_40px_-24px_rgba(0,0,0,0.38)] transition duration-300 hover:-translate-y-0.5 hover:bg-white/90 hover:shadow-[0_20px_46px_-24px_rgba(0,0,0,0.46)] focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
                 >
                   Подзвонити
                 </a>

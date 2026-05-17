@@ -112,6 +112,11 @@ const galleryImages = [
   },
 ];
 
+const storeAddress = "проспект Незалежності, 8, Долина, Івано-Франківська область, 77500";
+const storePhone = "+380 (00) 000 00 00";
+const storeHours = "Пн-Сб: 09:00-19:00";
+const encodedMapAddress = encodeURIComponent(storeAddress);
+
 export default function Home() {
   return (
     <div className="relative overflow-x-clip bg-[radial-gradient(circle_at_top_left,rgba(244,162,97,0.16),transparent_24%),radial-gradient(circle_at_top_right,rgba(39,51,91,0.12),transparent_22%),linear-gradient(180deg,#fffefc_0%,#fffefc_55%,#f7f8fb_100%)] text-zinc-900">
@@ -145,13 +150,13 @@ export default function Home() {
             <div className="flex flex-wrap gap-3">
               <a
                 href="tel:+380000000000"
-                className="text-brand-950 inline-flex h-12 items-center justify-center rounded-full bg-white px-6 text-sm font-semibold transition hover:bg-white/90"
+                className="text-brand-950 inline-flex h-12 items-center justify-center rounded-full bg-white px-6 text-sm font-semibold shadow-[0_20px_44px_-24px_rgba(0,0,0,0.42)] transition duration-300 hover:-translate-y-0.5 hover:bg-white/90 hover:shadow-[0_24px_50px_-24px_rgba(0,0,0,0.5)]"
               >
                 Швидка консультація
               </a>
               <a
                 href="#products"
-                className="inline-flex h-12 items-center justify-center rounded-full border border-white/45 bg-white/8 px-6 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/14"
+                className="inline-flex h-12 items-center justify-center rounded-full border border-white/45 bg-white/8 px-6 text-sm font-semibold text-white shadow-[0_18px_40px_-26px_rgba(0,0,0,0.34)] backdrop-blur-sm transition duration-300 hover:-translate-y-0.5 hover:bg-white/14 hover:shadow-[0_22px_46px_-24px_rgba(0,0,0,0.42)]"
               >
                 Подивитися товари
               </a>
@@ -352,18 +357,51 @@ export default function Home() {
                   <article className="rounded-[28px] border border-white/10 bg-white/7 p-5 backdrop-blur-sm">
                     <MapPin className="mb-3 h-5 w-5 text-white" />
                     <p className="mb-1 text-sm text-white/58">Адреса</p>
-                    <p className="font-semibold text-white">м. Ваше місто, вул. Прикладна, 10</p>
+                    <p className="font-semibold text-white">{storeAddress}</p>
                   </article>
                   <article className="rounded-[28px] border border-white/10 bg-white/7 p-5 backdrop-blur-sm">
                     <Phone className="mb-3 h-5 w-5 text-white" />
                     <p className="mb-1 text-sm text-white/58">Телефон</p>
-                    <p className="font-semibold text-white">+380 (00) 000 00 00</p>
+                    <p className="font-semibold text-white">{storePhone}</p>
                   </article>
                   <article className="rounded-[28px] border border-white/10 bg-white/7 p-5 backdrop-blur-sm">
                     <Clock3 className="mb-3 h-5 w-5 text-white" />
                     <p className="mb-1 text-sm text-white/58">Графік</p>
-                    <p className="font-semibold text-white">Пн-Сб: 09:00-19:00</p>
+                    <p className="font-semibold text-white">{storeHours}</p>
                   </article>
+                </div>
+              </div>
+
+              <div className="px-6 pb-6 sm:px-8 lg:px-10 lg:pb-10">
+                <div className="overflow-hidden rounded-[30px] border border-white/10 bg-white/6 shadow-[0_28px_70px_-42px_rgba(0,0,0,0.42)]">
+                  <div className="flex flex-col gap-4 border-b border-white/10 px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-sm font-semibold tracking-[0.18em] text-white/56 uppercase">
+                        Локація
+                      </p>
+                      <p className="mt-1 text-sm text-white/74 sm:text-base">
+                        Подивитись, де саме знаходиться магазин і як зручно доїхати.
+                      </p>
+                    </div>
+                    <a
+                      href={`https://www.google.com/maps/search/?api=1&query=${encodedMapAddress}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-brand-950 inline-flex h-11 items-center justify-center rounded-full border border-white/16 bg-white px-5 text-sm font-semibold shadow-[0_18px_42px_-24px_rgba(0,0,0,0.4)] transition duration-300 hover:-translate-y-0.5 hover:bg-white/92 hover:shadow-[0_22px_48px_-24px_rgba(0,0,0,0.46)]"
+                    >
+                      Відкрити маршрут
+                    </a>
+                  </div>
+
+                  <div className="bg-brand-900/20 relative aspect-[16/8] min-h-[320px] w-full">
+                    <iframe
+                      title="Мапа розташування Lucky Dog"
+                      src={`https://www.google.com/maps?q=${encodedMapAddress}&z=15&output=embed`}
+                      className="absolute inset-0 h-full w-full"
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                    />
+                  </div>
                 </div>
               </div>
             </div>

@@ -8,6 +8,9 @@ const footerNavItems = [
   { href: "#contacts", label: "Контакти" },
 ];
 
+const storeAddress = "проспект Незалежності, 8, Долина, Івано-Франківська область, 77500";
+const storePhone = "+380 (00) 000 00 00";
+const storeHours = "Пн-Сб: 09:00-19:00";
 const currentYear = new Date().getFullYear();
 
 export function SiteFooter() {
@@ -16,19 +19,22 @@ export function SiteFooter() {
       <div className="mx-auto max-w-7xl px-5 py-8 sm:px-8 lg:px-12 lg:py-10">
         <div className="grid gap-8 border-t border-white/10 pt-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.7fr)_minmax(0,0.9fr)]">
           <div className="max-w-lg">
-            <a href="#top" className="group inline-flex items-center gap-3">
+            <a
+              href="#top"
+              className="group inline-flex items-center gap-3 transition-transform duration-300 hover:-translate-y-0.5"
+            >
               <Image
                 src="/Luck_Dog_Logo.jpg"
                 alt="Lucky Dog logo"
                 width={52}
                 height={52}
-                className="rounded-2xl object-cover shadow-lg shadow-black/20"
+                className="rounded-2xl object-cover shadow-lg shadow-black/20 transition-all duration-300 group-hover:scale-[1.03] group-hover:shadow-[0_16px_34px_-18px_rgba(0,0,0,0.6)]"
               />
               <div>
-                <p className="text-[11px] font-semibold tracking-[0.24em] text-white/48 uppercase">
+                <p className="text-[11px] font-semibold tracking-[0.24em] text-white/48 uppercase transition group-hover:text-white/66">
                   Зоокомплекс
                 </p>
-                <p className="font-heading text-xl font-bold text-white transition group-hover:text-white/84">
+                <p className="font-heading text-xl font-bold text-white transition duration-300 group-hover:text-white/84">
                   Lucky Dog
                 </p>
               </div>
@@ -66,9 +72,7 @@ export function SiteFooter() {
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-white/64" />
                 <div>
                   <p className="text-xs text-white/42 uppercase">Адреса</p>
-                  <p className="text-sm font-medium text-white/84">
-                    м. Ваше місто, вул. Прикладна, 10
-                  </p>
+                  <p className="text-sm font-medium text-white/84">{storeAddress}</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
@@ -79,7 +83,7 @@ export function SiteFooter() {
                     href="tel:+380000000000"
                     className="text-sm font-medium text-white/84 transition hover:text-white"
                   >
-                    +380 (00) 000 00 00
+                    {storePhone}
                   </a>
                 </div>
               </div>
@@ -87,7 +91,7 @@ export function SiteFooter() {
                 <Clock3 className="mt-0.5 h-4 w-4 shrink-0 text-white/64" />
                 <div>
                   <p className="text-xs text-white/42 uppercase">Графік</p>
-                  <p className="text-sm font-medium text-white/84">Пн-Сб: 09:00-19:00</p>
+                  <p className="text-sm font-medium text-white/84">{storeHours}</p>
                 </div>
               </div>
             </div>
